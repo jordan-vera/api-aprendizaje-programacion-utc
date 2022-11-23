@@ -41,6 +41,14 @@ $routes->post('clase', 'Clases::create');
 $routes->get('clases/(:num)', 'Clases::getall/$1');
 $routes->get('clase-one/(:num)', 'Clases::getone/$1');
 
+$routes->post('programa', 'Programa::create');
+$routes->get('programas/(:num)', 'Programa::getall/$1');
+$routes->get('programa-one/(:num)', 'Programa::getone/$1');
+
+$routes->post('codigo', 'Codigo::create');
+$routes->get('codigos/(:num)', 'Codigo::getall/$1');
+$routes->get('codigo-one/(:num)', 'Codigo::getone/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
