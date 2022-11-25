@@ -3,22 +3,22 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\ProgramasModel;
+use App\Models\QuizzModel;
 
-class Programa extends BaseController
+class Quizz extends BaseController
 {
     public function getall($idclase)
     {
-        $model = new ProgramasModel();
+        $model = new QuizzModel();
         $data = $model->asArray()
             ->where(['idclase' => $idclase])->findAll();
         return $this->getResponse(['response' => $data]);
     }
 
-    public function getone($idprograma)
+    public function getone($idquizz)
     {
-        $model = new ProgramasModel();
-        $data = $model->asArray()->where(['idprograma' => $idprograma])->first();
+        $model = new QuizzModel();
+        $data = $model->asArray()->where(['isquizz' => $idquizz])->first();
         return $this->getResponse(['response' => $data]);
     }
 
@@ -26,18 +26,18 @@ class Programa extends BaseController
     {
         $datosInput = $this->getRequestInput($this->request);
 
-        $model = new ProgramasModel();
+        $model = new QuizzModel();
         $model->save($datosInput);
         $id = $model->getInsertID();
 
         return $this->getResponse(['response' => $id]);
     }
 
-    public function delete($idprograma)
+    public function delete($idquizz)
     {
-        $model = new ProgramasModel();
-        if ($model->delete($idprograma)) {
-            return $this->getResponse(['response' => 'Codigo eliminada correctamente']);
+        $model = new QuizzModel();
+        if ($model->delete($idquizz)) {
+            return $this->getResponse(['response' => 'Registro eliminado correctamente']);
         }
     }
 }

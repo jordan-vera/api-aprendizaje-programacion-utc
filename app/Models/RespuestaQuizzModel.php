@@ -8,7 +8,7 @@ class RespuestaQuizzModel extends Model
 {
     protected $table = 'respuestaquizz';
     protected $primaryKey = 'idrespuesta';
-    protected $allowedFields = ['respuesta', 'escorrecta', 'idpregunta'];
+    protected $allowedFields = ['respuesta', 'escorrecta', 'idquizz'];
     protected $useTimestamps = true;
     protected $updatedField = 'updated_at';
 }

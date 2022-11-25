@@ -31,4 +31,12 @@ class Codigo extends BaseController
 
         return $this->getResponse(['response' => 'Datos guardados con exito']);
     }
+
+    public function delete($idprograma)
+    {
+        $model = new CodigoModel();
+        if ($model->where('idprograma', $idprograma)->delete()) {
+            return $this->getResponse(['response' => 'Codigos eliminados correctamente']);
+        }
+    }
 }
