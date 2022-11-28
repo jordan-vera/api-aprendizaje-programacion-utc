@@ -51,6 +51,17 @@ $routes->get('codigos/(:num)', 'Codigo::getall/$1');
 $routes->get('codigo-one/(:num)', 'Codigo::getone/$1');
 $routes->get('codigo-delete/(:num)', 'Codigo::delete/$1');
 
+$routes->post('quizz', 'Quizz::create');
+$routes->get('quizz-all/(:num)', 'Quizz::getall/$1');
+$routes->get('quizz-one/(:num)', 'Quizz::getone/$1');
+$routes->get('quizz-delete/(:num)', 'Quizz::delete/$1');
+
+$routes->post('respuestaquizz', 'Respuestaquizz::create');
+$routes->get('respuestaquizz-all/(:num)', 'Respuestaquizz::getall/$1');
+$routes->get('respuestaquizz-one/(:num)', 'Respuestaquizz::getone/$1');
+$routes->get('respuestaquizz-delete/(:num)', 'Respuestaquizz::delete/$1');
+$routes->get('respuestaquizz-delete-all/(:num)', 'Respuestaquizz::deleteall/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
