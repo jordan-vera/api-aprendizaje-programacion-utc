@@ -18,7 +18,7 @@ class Quizz extends BaseController
     public function getone($idquizz)
     {
         $model = new QuizzModel();
-        $data = $model->asArray()->where(['isquizz' => $idquizz])->first();
+        $data = $model->asArray()->where(['idquizz' => $idquizz])->first();
         return $this->getResponse(['response' => $data]);
     }
 
