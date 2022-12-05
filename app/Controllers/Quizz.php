@@ -40,4 +40,18 @@ class Quizz extends BaseController
             return $this->getResponse(['response' => 'Registro eliminado correctamente']);
         }
     }
+
+    public function update()
+    {
+        $datosInput = $this->getRequestInput($this->request);
+        $model = new QuizzModel();
+        $idquizz = $datosInput['idquizz'];
+
+        $data = [
+            'titulo' => $datosInput['titulo'],
+        ];
+        $model->update($idquizz, $data);
+
+        return $this->getResponse(['response' => 'quizz actualizada correctamente']);
+    }
 }

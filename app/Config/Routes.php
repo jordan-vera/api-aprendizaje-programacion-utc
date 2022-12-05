@@ -52,15 +52,24 @@ $routes->get('codigo-one/(:num)', 'Codigo::getone/$1');
 $routes->get('codigo-delete/(:num)', 'Codigo::delete/$1');
 
 $routes->post('quizz', 'Quizz::create');
+$routes->post('quizz-update', 'Quizz::update');
 $routes->get('quizz-all/(:num)', 'Quizz::getall/$1');
 $routes->get('quizz-one/(:num)', 'Quizz::getone/$1');
 $routes->get('quizz-delete/(:num)', 'Quizz::delete/$1');
 
 $routes->post('respuestaquizz', 'Respuestaquizz::create');
+$routes->post('respuestaquizz-update', 'Respuestaquizz::update');
 $routes->get('respuestaquizz-all/(:num)', 'Respuestaquizz::getall/$1');
 $routes->get('respuestaquizz-one/(:num)', 'Respuestaquizz::getone/$1');
 $routes->get('respuestaquizz-delete/(:num)', 'Respuestaquizz::delete/$1');
 $routes->get('respuestaquizz-delete-all/(:num)', 'Respuestaquizz::deleteall/$1');
+
+$routes->post('puzzle', 'Puzzle::create');
+$routes->post('puzzle-update', 'Puzzle::update');
+$routes->post('puzzle-update-imagen', 'Puzzle::updateimagen');
+$routes->get('puzzle-all/(:num)', 'Puzzle::getall/$1');
+$routes->get('puzzle-one/(:num)', 'Puzzle::getone/$1');
+$routes->get('puzzle-delete/(:num)', 'Puzzle::delete/$1');
 
 /*
  * --------------------------------------------------------------------

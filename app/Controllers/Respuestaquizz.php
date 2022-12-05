@@ -48,4 +48,19 @@ class Respuestaquizz extends BaseController
             return $this->getResponse(['response' => 'preguntas eliminadas correctamente']);
         }
     }
+
+    public function update()
+    {
+        $model = new RespuestaQuizzModel();
+        $datosInput = $this->getRequestInput($this->request);
+        $idrespuesta = $datosInput['idrespuesta'];
+
+        $data = [
+            'respuesta' => $datosInput['respuesta'],
+            'escorrecta' => $datosInput['escorrecta'],
+        ];
+        $model->update($idrespuesta, $data);
+
+        return $this->getResponse(['response' => 'respuestas actualizada correctamente']);
+    }
 }
