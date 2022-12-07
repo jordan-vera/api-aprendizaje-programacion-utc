@@ -14,6 +14,13 @@ class Cursos extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
+    public function getsearch($nombre)
+    {
+        $model = new CursosModel();
+        $data = $model->asArray()->like(['nombrecurso' => $nombre])->findAll();
+        return $this->getResponse(['response' => $data]);
+    }
+
     public function getone($idcurso)
     {
         $model = new CursosModel();
@@ -33,6 +40,7 @@ class Cursos extends BaseController
 
         $model = new CursosModel();
         $model->save($datosInput);
+        
 
         return $this->getResponse(['response' => 'Datos guardados con exito']);
     }

@@ -31,11 +31,14 @@ $routes->set404Override();
 
 $routes->post('curso', 'Cursos::create');
 $routes->get('cursos/(:num)', 'Cursos::getall/$1');
+$routes->get('cursos-search/(:any)', 'Cursos::getsearch/$1');
 $routes->get('cursos-one/(:num)', 'Cursos::getone/$1');
 
 $routes->get('login/(:any)/(:any)', 'Usuariologin::login/$1/$2');
 
 $routes->get('docente/(:num)', 'Docentes::getone/$1');
+
+$routes->get('estudiante/(:num)', 'Estudiantes::getone/$1');
 
 $routes->post('clase', 'Clases::create');
 $routes->get('clases/(:num)', 'Clases::getall/$1');
@@ -66,10 +69,10 @@ $routes->get('respuestaquizz-delete-all/(:num)', 'Respuestaquizz::deleteall/$1')
 
 $routes->post('puzzle', 'Puzzle::create');
 $routes->post('puzzle-update', 'Puzzle::update');
-$routes->post('puzzle-update-imagen', 'Puzzle::updateimagen');
+$routes->post('puzzle-update-imagen/(:any)', 'Puzzle::updateimagen/$1');
 $routes->get('puzzle-all/(:num)', 'Puzzle::getall/$1');
 $routes->get('puzzle-one/(:num)', 'Puzzle::getone/$1');
-$routes->get('puzzle-delete/(:num)', 'Puzzle::delete/$1');
+$routes->get('puzzle-delete/(:num)/(:any)', 'Puzzle::delete/$1/$2');
 
 /*
  * --------------------------------------------------------------------

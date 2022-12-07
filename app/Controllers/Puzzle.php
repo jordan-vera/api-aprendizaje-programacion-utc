@@ -37,7 +37,7 @@ class Puzzle extends BaseController
         return $this->getResponse(['response' => 'Datos guardados con exito']);
     }
 
-    public function updateimagen()
+    public function updateimagen($imagenanterior)
     {
         $datosInput = $this->getRequestInput($this->request);
         $model = new PuzzleModel();
@@ -53,6 +53,9 @@ class Puzzle extends BaseController
             'imagen' => $datosInput['imagen'],
         ];
         $model->update($idpuzzle, $data);
+
+        $filePathDelete = "C:\\xampp\\htdocs\\archivosAprendizajeUtc\\" . urldecode($imagenanterior);
+        unlink($filePathDelete);
 
         return $this->getResponse(['response' => 'quizz actualizada correctamente']);
     }
@@ -72,10 +75,14 @@ class Puzzle extends BaseController
         return $this->getResponse(['response' => 'quizz actualizada correctamente']);
     }
 
-    public function delete($idpuzzle)
+    public function delete($idpuzzle, $imagenanterior)
     {
         $model = new PuzzleModel();
         if ($model->delete($idpuzzle)) {
+
+            $filePathDelete = "C:\\xampp\\htdocs\\archivosAprendizajeUtc\\" . urldecode($imagenanterior);
+            unlink($filePathDelete);
+
             return $this->getResponse(['response' => 'Puzzle eliminado correctamente']);
         }
     }
