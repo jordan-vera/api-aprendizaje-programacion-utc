@@ -74,6 +74,10 @@ $routes->get('puzzle-all/(:num)', 'Puzzle::getall/$1');
 $routes->get('puzzle-one/(:num)', 'Puzzle::getone/$1');
 $routes->get('puzzle-delete/(:num)/(:any)', 'Puzzle::delete/$1/$2');
 
+$routes->post('cursoestudiante', 'Cursoestudiante::create');
+$routes->get('cursoestudiante/(:num)/(:num)', 'Cursoestudiante::getone/$1/$2');
+$routes->get('cursoestudiante-por-curso/(:num)', 'Cursoestudiante::getestudiantesporcurso/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
