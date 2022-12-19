@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ClasesModel;
+use App\Models\CursosModel;
 
 class Clases extends BaseController
 {
@@ -12,7 +13,7 @@ class Clases extends BaseController
         $model = new ClasesModel();
         $data = $model->asArray()
         ->join('cursos', 'cursos.idcurso = clases.idcurso')
-        ->where(['cursos.iddocente' => $idcurso])->findAll();
+        ->where(['cursos.idcurso' => $idcurso])->findAll();
         return $this->getResponse(['response' => $data]);
     }
 
@@ -31,6 +32,14 @@ class Clases extends BaseController
         $model->save($datosInput);
 
         return $this->getResponse(['response' => 'Datos guardados con exito']);
+    }
+
+    public function delete($idclase)
+    {
+        $model = new ClasesModel();
+        if ($model->where('idclase', $idclase)->delete()) {
+            return $this->getResponse(['response' => 'Cursos eliminados correctamente']);
+        }
     }
 
 }

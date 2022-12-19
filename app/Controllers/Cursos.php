@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ClasesModel;
+use App\Models\CursoEstudianteModel;
 use App\Models\CursosModel;
 
 class Cursos extends BaseController
@@ -40,9 +42,25 @@ class Cursos extends BaseController
 
         $model = new CursosModel();
         $model->save($datosInput);
-        
+
 
         return $this->getResponse(['response' => 'Datos guardados con exito']);
     }
 
+    public function delete($idcurso)
+    {
+        $model = new CursosModel();
+
+        if ($model->where('idcurso', $idcurso)->delete()) {
+
+            $modelclase = new ClasesModel();
+            if ($modelclase->where('idcurso', $idcurso)->delete()) {
+
+                $modelcursoestudiante = new CursoEstudianteModel();
+                if ($modelcursoestudiante->where('idcurso')->delete()) {
+                    return $this->getResponse(['response' => 'Curso eliminados correctamente']);
+                }
+            }
+        }
+    }
 }

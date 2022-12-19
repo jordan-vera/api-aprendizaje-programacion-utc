@@ -33,6 +33,7 @@ $routes->post('curso', 'Cursos::create');
 $routes->get('cursos/(:num)', 'Cursos::getall/$1');
 $routes->get('cursos-search/(:any)', 'Cursos::getsearch/$1');
 $routes->get('cursos-one/(:num)', 'Cursos::getone/$1');
+$routes->get('cursos-delete/(:num)', 'Cursos::delete/$1');
 
 $routes->get('login/(:any)/(:any)', 'Usuariologin::login/$1/$2');
 
@@ -77,6 +78,7 @@ $routes->get('puzzle-delete/(:num)/(:any)', 'Puzzle::delete/$1/$2');
 $routes->post('cursoestudiante', 'Cursoestudiante::create');
 $routes->get('cursoestudiante/(:num)/(:num)', 'Cursoestudiante::getone/$1/$2');
 $routes->get('cursoestudiante-por-curso/(:num)', 'Cursoestudiante::getestudiantesporcurso/$1');
+$routes->post('cambiar-estado-estudiante-curso', 'Cursoestudiante::updateestado');
 
 /*
  * --------------------------------------------------------------------

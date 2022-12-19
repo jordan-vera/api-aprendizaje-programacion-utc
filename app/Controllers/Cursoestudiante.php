@@ -21,6 +21,7 @@ class Cursoestudiante extends BaseController
     {
         $model = new CursoEstudianteModel();
         $data = $model->asArray()
+            ->join('estudiantes', 'estudiantes.idestudiante = cursos_estudiantes.idestudiante')
             ->where(['idcurso' => $idcurso])
             ->findAll();
         return $this->getResponse(['response' => $data]);
