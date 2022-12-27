@@ -36,10 +36,13 @@ $routes->get('cursos-one/(:num)', 'Cursos::getone/$1');
 $routes->get('cursos-delete/(:num)', 'Cursos::delete/$1');
 
 $routes->get('login/(:any)/(:any)', 'Usuariologin::login/$1/$2');
+$routes->get('verificar-clave/(:num)/(:any)', 'Usuariologin::verificarclavecorrecta/$1/$2');
+$routes->post('clave-update', 'Usuariologin::updateclave');
 
 $routes->get('docente/(:num)', 'Docentes::getone/$1');
 
 $routes->get('estudiante/(:num)', 'Estudiantes::getone/$1');
+$routes->post('estudiante-update', 'Estudiantes::update');
 
 $routes->post('clase', 'Clases::create');
 $routes->get('clases/(:num)', 'Clases::getall/$1');
@@ -47,6 +50,7 @@ $routes->get('clase-one/(:num)', 'Clases::getone/$1');
 
 $routes->post('programa', 'Programa::create');
 $routes->get('programas/(:num)', 'Programa::getall/$1');
+$routes->get('programas-codigo/(:num)', 'Programa::getallprogramacodigo/$1');
 $routes->get('programa-one/(:num)', 'Programa::getone/$1');
 $routes->get('programas-delete/(:num)', 'Programa::delete/$1');
 
@@ -79,6 +83,7 @@ $routes->post('cursoestudiante', 'Cursoestudiante::create');
 $routes->get('cursoestudiante/(:num)/(:num)', 'Cursoestudiante::getone/$1/$2');
 $routes->get('cursoestudiante-por-curso/(:num)', 'Cursoestudiante::getestudiantesporcurso/$1');
 $routes->post('cambiar-estado-estudiante-curso', 'Cursoestudiante::updateestado');
+$routes->get('cursoestudiante-aprobados/(:num)', 'Cursoestudiante::getoneaprobados/$1');
 
 /*
  * --------------------------------------------------------------------

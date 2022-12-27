@@ -17,6 +17,18 @@ class Cursoestudiante extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
+    public function getoneaprobados($idestudiante)
+    {
+        $model = new CursoEstudianteModel();
+        $data = $model->asArray()
+            ->join('estudiantes', 'estudiantes.idestudiante = cursos_estudiantes.idestudiante')
+            ->join('cursos', 'cursos.idcurso = cursos_estudiantes.idcurso')
+            ->where(['estudiantes.idestudiante' => $idestudiante])
+            ->where(['estado_aceptado' => 'aprobado'])
+            ->findAll();
+        return $this->getResponse(['response' => $data]);
+    }
+
     public function getestudiantesporcurso($idcurso)
     {
         $model = new CursoEstudianteModel();
