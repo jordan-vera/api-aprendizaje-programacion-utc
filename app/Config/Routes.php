@@ -85,6 +85,13 @@ $routes->get('cursoestudiante-por-curso/(:num)', 'Cursoestudiante::getestudiante
 $routes->post('cambiar-estado-estudiante-curso', 'Cursoestudiante::updateestado');
 $routes->get('cursoestudiante-aprobados/(:num)', 'Cursoestudiante::getoneaprobados/$1');
 
+$routes->post('estudianteprograma', 'Estudiantesprogramas::create');
+$routes->get('estudianteprograma-programa/(:num)', 'Estudiantesprogramas::getporprograma/$1');
+
+$routes->post('respuestacodigo', 'RespuestaCodigo::create');
+$routes->get('respuestacodigo-codigo/(:num)', 'RespuestaCodigo::getporcodigo/$1');
+$routes->get('respuestacodigo-estudianteprograma/(:num)', 'RespuestaCodigo::getporrespuestacodigo/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
