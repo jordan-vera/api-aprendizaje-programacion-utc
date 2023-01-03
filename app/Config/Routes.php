@@ -87,6 +87,7 @@ $routes->get('cursoestudiante-aprobados/(:num)', 'Cursoestudiante::getoneaprobad
 
 $routes->post('estudianteprograma', 'Estudiantesprogramas::create');
 $routes->get('estudianteprograma-programa/(:num)', 'Estudiantesprogramas::getporprograma/$1');
+$routes->get('estudianteprograma-estudiante/(:num)', 'Estudiantesprogramas::getporestudiante/$1');
 
 $routes->post('respuestacodigo', 'RespuestaCodigo::create');
 $routes->get('respuestacodigo-codigo/(:num)', 'RespuestaCodigo::getporcodigo/$1');

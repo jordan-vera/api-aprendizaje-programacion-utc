@@ -8,7 +8,7 @@ class EstudianteProgramasModel extends Model
 {
     protected $table = 'estudiantes_programas';
     protected $primaryKey = 'idestudiante_programas';
-    protected $allowedFields = ['idprograma'];
+    protected $allowedFields = ['idprograma', 'idestudiante'];
     protected $useTimestamps = true;
     protected $updatedField = 'updated_at';
 }

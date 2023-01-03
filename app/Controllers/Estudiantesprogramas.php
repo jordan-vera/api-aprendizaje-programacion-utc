@@ -15,6 +15,13 @@ class Estudiantesprogramas extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
+    public function getporestudiante($idestudiante)
+    {
+        $model = new EstudianteProgramasModel();
+        $data = $model->asArray()->where(['idestudiante' => $idestudiante])->findAll();
+        return $this->getResponse(['response' => $data]);
+    }
+
     public function create()
     {
         $datosInput = $this->getRequestInput($this->request);
