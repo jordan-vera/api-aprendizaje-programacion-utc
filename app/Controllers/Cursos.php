@@ -16,6 +16,22 @@ class Cursos extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
+    public function count($iddocente)
+    {
+        $model = new CursosModel();
+        $data = $model->asArray()->where(['iddocente' => $iddocente])->countAllResults();
+        return $this->getResponse(['response' => $data]);
+    }
+
+    public function countestudiante($idestudiante)
+    {
+        $model = new CursosModel();
+        $data = $model->asArray()
+        ->join('cursos_estudiantes', 'cursos_estudiantes.idestudiante = estudiantes.idestudiante')
+        ->where(['cursos_estudiantes.idestudiante' => $idestudiante])->countAllResults();
+        return $this->getResponse(['response' => $data]);
+    }
+
     public function getsearch($nombre)
     {
         $model = new CursosModel();

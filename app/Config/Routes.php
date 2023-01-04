@@ -31,6 +31,7 @@ $routes->set404Override();
 
 $routes->post('curso', 'Cursos::create');
 $routes->get('cursos/(:num)', 'Cursos::getall/$1');
+$routes->get('cursos-count/(:num)', 'Cursos::count/$1');
 $routes->get('cursos-search/(:any)', 'Cursos::getsearch/$1');
 $routes->get('cursos-one/(:num)', 'Cursos::getone/$1');
 $routes->get('cursos-delete/(:num)', 'Cursos::delete/$1');
@@ -42,10 +43,12 @@ $routes->post('clave-update', 'Usuariologin::updateclave');
 $routes->get('docente/(:num)', 'Docentes::getone/$1');
 
 $routes->get('estudiante/(:num)', 'Estudiantes::getone/$1');
+$routes->get('estudiante-count-docente/(:num)', 'Estudiantes::countpordocente/$1');
 $routes->post('estudiante-update', 'Estudiantes::update');
 
 $routes->post('clase', 'Clases::create');
 $routes->get('clases/(:num)', 'Clases::getall/$1');
+$routes->get('clases-count-docente/(:num)', 'Clases::countpordocente/$1');
 $routes->get('clase-one/(:num)', 'Clases::getone/$1');
 
 $routes->post('programa', 'Programa::create');

@@ -15,6 +15,16 @@ class Estudiantes extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
+    public function countpordocente($iddocente)
+    {
+        $model = new EstudiantesModel();
+        $data = $model->asArray()
+        ->join('cursos_estudiantes', 'cursos_estudiantes.idestudiante = estudiantes.idestudiante')
+        ->join('cursos', 'cursos.idcurso = cursos_estudiantes.idcurso')
+        ->where(['cursos.iddocente' => $iddocente])->countAllResults();
+        return $this->getResponse(['response' => $data]);
+    }
+
     public function update()
     {
         $datosInput = $this->getRequestInput($this->request);

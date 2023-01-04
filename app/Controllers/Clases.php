@@ -17,6 +17,15 @@ class Clases extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
+    public function countpordocente($iddocente)
+    {
+        $model = new ClasesModel();
+        $data = $model->asArray()
+        ->join('cursos', 'cursos.idcurso = clases.idcurso')
+        ->where(['cursos.iddocente' => $iddocente])->countAllResults();
+        return $this->getResponse(['response' => $data]);
+    }
+
     public function getone($idclase)
     {
         $model = new ClasesModel();
