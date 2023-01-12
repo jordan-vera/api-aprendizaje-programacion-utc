@@ -32,6 +32,7 @@ $routes->set404Override();
 $routes->post('curso', 'Cursos::create');
 $routes->get('cursos/(:num)', 'Cursos::getall/$1');
 $routes->get('cursos-count/(:num)', 'Cursos::count/$1');
+$routes->get('cursos-count-estudiantes/(:num)', 'Cursos::countestudiante/$1');
 $routes->get('cursos-search/(:any)', 'Cursos::getsearch/$1');
 $routes->get('cursos-one/(:num)', 'Cursos::getone/$1');
 $routes->get('cursos-delete/(:num)', 'Cursos::delete/$1');

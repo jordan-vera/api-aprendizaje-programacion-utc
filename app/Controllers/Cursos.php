@@ -27,7 +27,7 @@ class Cursos extends BaseController
     {
         $model = new CursosModel();
         $data = $model->asArray()
-        ->join('cursos_estudiantes', 'cursos_estudiantes.idestudiante = estudiantes.idestudiante')
+        ->join('cursos_estudiantes', 'cursos_estudiantes.idcurso = cursos.idcurso')
         ->where(['cursos_estudiantes.idestudiante' => $idestudiante])->countAllResults();
         return $this->getResponse(['response' => $data]);
     }

@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ClasesModel;
-use App\Models\CursosModel;
 
 class Clases extends BaseController
 {
