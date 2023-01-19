@@ -66,6 +66,7 @@ $routes->get('codigo-delete/(:num)', 'Codigo::delete/$1');
 $routes->post('quizz', 'Quizz::create');
 $routes->post('quizz-update', 'Quizz::update');
 $routes->get('quizz-all/(:num)', 'Quizz::getall/$1');
+$routes->get('quizz-all-respuesta/(:num)', 'Quizz::getallrespuestas/$1');
 $routes->get('quizz-one/(:num)', 'Quizz::getone/$1');
 $routes->get('quizz-delete/(:num)', 'Quizz::delete/$1');
 
