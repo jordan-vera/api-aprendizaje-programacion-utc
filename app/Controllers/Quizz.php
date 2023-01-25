@@ -17,7 +17,7 @@ class Quizz extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
-    public function getallrespuestas($idclase)
+    public function getallrespuestas($idclase, $idestudiante)
     {
         $array = array();
         $arrayGeneralNorespondidas = array();
@@ -39,19 +39,24 @@ class Quizz extends BaseController
 
             //verificar si ya esta resuelto el quizz
             $datarelacion = new EstudianteQuizzModel();
-            $dataestudiantequizz = $datarelacion->asArray()->where(['idquizz' => $data[$i]['idquizz']])->first();
+            $dataestudiantequizz = $datarelacion->asArray()
+            ->where(['idquizz' => $data[$i]['idquizz']])
+            ->where(['idestudiante' => $idestudiante])
+            ->first();
             if ($dataestudiantequizz != null) {
                 // si esta resuelto
                 if ($dataestudiantequizz['idquizz'] == $data[$i]['idquizz']) {
-                    // verificar si el programa esta resuelto de la forma correcta
+                    // verificar si el quizz esta resuelto de la forma correcta
                     $modelEstudianteQuizzR = new EstudianteQuizzModel();
                     $dataEstudianteQuizzR = $modelEstudianteQuizzR->asArray()
                     ->join('estudiante_respuestaquizz', 'estudiante_respuestaquizz.idestudiante_quizz = estudiante_quizz.idestudiante_quizz')
                         ->where(['estudiante_quizz.idquizz' => $data[$i]['idquizz']])->first();
                     
                         $datarespuestaComparacion = $modelRespuestaQuizz->asArray()
-                        ->where(['idrespuestaquizz' => $dataEstudianteQuizzR['idrespuestaquizz']])
+                        ->where(['idrespuesta' => $dataEstudianteQuizzR['idrespuestaquizz']])
                         ->first();
+
+                        /*BUSCAR ERROR POR QUE NO UBICA SI ESTA BIEN RESPONDIDA O NO */
 
                     if($datarespuestaComparacion['escorrecta'] == 1 || $datarespuestaComparacion['escorrecta'] == true) {
                         array_push($arrayGeneralRespondidas, ["idquizz" => $data[$i]['idquizz'], "titulo" => $data[$i]['titulo'], "idclase" => $data[$i]['idclase'], "created_at" => $data[$i]['created_at'], "respondido" => true, "escorrecta" => true]);

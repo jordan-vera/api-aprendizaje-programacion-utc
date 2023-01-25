@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class EstudiantePreguntaQuizzModel extends Model
+class EstudianteRespuestaSeleccionQuizzModel extends Model
 {
     protected $table = 'estudiante_respuestaquizz';
     protected $primaryKey = 'idrespuestaseleccionada_quizz';

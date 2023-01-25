@@ -54,7 +54,7 @@ $routes->get('clase-one/(:num)', 'Clases::getone/$1');
 
 $routes->post('programa', 'Programa::create');
 $routes->get('programas/(:num)', 'Programa::getall/$1');
-$routes->get('programas-codigo/(:num)', 'Programa::getallprogramacodigo/$1');
+$routes->get('programas-codigo/(:num)/(:num)', 'Programa::getallprogramacodigo/$1/$2');
 $routes->get('programa-one/(:num)', 'Programa::getone/$1');
 $routes->get('programas-delete/(:num)', 'Programa::delete/$1');
 
@@ -66,7 +66,7 @@ $routes->get('codigo-delete/(:num)', 'Codigo::delete/$1');
 $routes->post('quizz', 'Quizz::create');
 $routes->post('quizz-update', 'Quizz::update');
 $routes->get('quizz-all/(:num)', 'Quizz::getall/$1');
-$routes->get('quizz-all-respuesta/(:num)', 'Quizz::getallrespuestas/$1');
+$routes->get('quizz-all-respuesta/(:num)/(:num)', 'Quizz::getallrespuestas/$1/$2');
 $routes->get('quizz-one/(:num)', 'Quizz::getone/$1');
 $routes->get('quizz-delete/(:num)', 'Quizz::delete/$1');
 
@@ -97,6 +97,18 @@ $routes->get('estudianteprograma-estudiante/(:num)', 'Estudiantesprogramas::getp
 $routes->post('respuestacodigo', 'RespuestaCodigo::create');
 $routes->get('respuestacodigo-codigo/(:num)', 'RespuestaCodigo::getporcodigo/$1');
 $routes->get('respuestacodigo-estudianteprograma/(:num)', 'RespuestaCodigo::getporrespuestacodigo/$1');
+
+$routes->post('estudiantequizz', 'Estudiantesquizz::create');
+$routes->get('estudiantequizz-quizz/(:num)', 'Estudiantesquizz::getporquizz/$1');
+$routes->get('estudiantequizz-estudiante/(:num)', 'Estudiantesquizz::getporestudiante/$1');
+
+$routes->post('estudianterespuestaquizz', 'Estudianterespuestaquizz::create');
+$routes->get('estudianterespuestaquizz-estudiantequizz/(:num)', 'Estudianterespuestaquizz::getporestudiantequizz/$1');
+$routes->get('estudianterespuestaquizz-respuestaquizz/(:num)', 'Estudianterespuestaquizz::getporrespuesta/$1');
+
+$routes->post('estudianterespuestapuzzle', 'Estudianterespuestapuzzle::create');
+$routes->get('estudianterespuestapuzzle-puzzle/(:num)', 'Estudianterespuestapuzzle::getporpuzzle/$1');
+$routes->get('estudianterespuestapuzzle-estudiante/(:num)', 'Estudianterespuestapuzzle::getporestudiante/$1');
 
 /*
  * --------------------------------------------------------------------

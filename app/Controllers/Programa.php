@@ -18,7 +18,7 @@ class Programa extends BaseController
         return $this->getResponse(['response' => $data]);
     }
 
-    public function getallprogramacodigo($idclase)
+    public function getallprogramacodigo($idclase, $idestudiante)
     {
         $array = array();
         $arrayGeneralNorespondidas = array();
@@ -38,7 +38,10 @@ class Programa extends BaseController
 
             //verificar si ya esta resuelto el programa
             $datarelacion = new EstudianteProgramasModel();
-            $dataestudianteprograma = $datarelacion->asArray()->where(['idprograma' => $data[$i]['idprograma']])->first();
+            $dataestudianteprograma = $datarelacion->asArray()
+            ->where(['idprograma' => $data[$i]['idprograma']])
+            ->where(['idestudiante' => $idestudiante])
+            ->first();
             if ($dataestudianteprograma != null) {
                 if ($dataestudianteprograma['idprograma'] == $data[$i]['idprograma']) {
                     // verificar si el programa esta resuelto de la forma correcta
